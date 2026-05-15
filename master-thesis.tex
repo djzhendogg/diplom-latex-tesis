@@ -1534,24 +1534,23 @@ AD-2 & сложный\\ \hline
 \hline
 Тип биологической \newline активности & Лучшая модель\newline(среднее качество) & Лучшая модель\newline(взвешенное качество) \\
 \hline
-Противовирусные & Ankh & ESM-C \\ \hline
+\textbf{Противовирусные} & \textbf{Ankh} & \textbf{ESM-C} \\ \hline
+\textbf{Гемолитические} & \textbf{Ankh} & \textbf{ProtT5} \\ \hline
+\textbf{Сенсорные} & \textbf{ProtT5} & \textbf{Ankh} \\ \hline
 Антимикробные & ProtT5 & ProtT5 \\ \hline
-Проникающие в клетки & ProtT5 & ESM-C \\ \hline
+Проникающие в клетки & ProtT5 & ProtT5 \\ \hline
 Противоопухолевые & ProtT5 & ProtT5 \\ \hline
-Гемолитические & Ankh & Ankh \\ \hline
-Антибактериальные & ProtT5 & ESM-C \\ \hline
+Антибактериальные & ProtT5 & ProtT5 \\ \hline
 Противогрибковые & Ankh & Ankh \\ \hline
 Противопаразитарные & ProtT5 & ProtT5 \\ \hline
-Сенсорные & ProtT5 & Ankh \\ \hline
 Противовоспалительные & ProtT5 & ProtT5 \\ \hline
 Антигипертензивные & Ankh & Ankh \\ \hline
 Антидиабетические & ESM-C & ESM-C \\ \hline
 Вкусовые & ProtT5 & ProtT5 \\ \hline
 Противоокислительные & ProtT5 & ProtT5 \\ \hline
-Нейропептиды & ESM-C & Ankh \\ \hline
+Нейропептиды & ESM-C & ESM-C \\ \hline
 Токсичные & ProtT5 & ProtT5 \\ \hline
-Другие & ESM-C & ProtT5 \\ \hline
-
+Другие & ESM-C & ESM-C \\ \hline
 \end{tabular}
 
 \end{table}
@@ -1566,12 +1565,12 @@ AD-2 & сложный\\ \hline
 \hline
 Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
 \hline
-AV-1 & средний & 0.091 & 0.739 & 0.767 & 0.73 & 0.691 \\ \hline
+AV-1 & средний & 0.091 & 0.739 & 0.767 & 0.730 & 0.691 \\ \hline
 AV-2 & средний & 0.091 & 0.656 & 0.671 & 0.651 & 0.604 \\ \hline
-AV-3 & средний & 0.091 & 0.721 & 0.722 & 0.7 & 0.659 \\ \hline
+AV-3 & средний & 0.091 & 0.721 & 0.722 & 0.700 & 0.659 \\ \hline
 AV-4 & сложный & 0.247 & 0.519 & 0.542 & 0.638 & 0.591 \\ \hline
-AV-5 & сложный & 0.247 & 0.547 & 0.55 & 0.587 & 0.309 \\ \hline
-AV-6 & легкий & 0.033 & 0.872 & 0.868 & 0.866 & 0.86 \\ \hline
+AV-5 & сложный & 0.247 & 0.547 & 0.550 & 0.587 & 0.309 \\ \hline
+AV-6 & легкий & 0.033 & 0.872 & 0.868 & 0.866 & 0.860 \\ \hline
 AV-7 & легкий & 0.033 & 0.696 & 0.722 & 0.713 & 0.732 \\ \hline
 AV-8 & легкий & 0.033 & 0.822 & 0.847 & 0.828 & 0.841 \\ \hline
 AV-9 & легкий & 0.033 & 0.811 & 0.852 & 0.831 & 0.841 \\ \hline
@@ -1601,7 +1600,45 @@ Ankh & \textbf{0.762} & \underline{0.663} \\ \hline
 
 \end{table}
 
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных гемолитических пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_hem}
 
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+HEM-1 & сложный & 0.405 & 0.653 & 0.635 & 0.642 & 0.578 \\ \hline
+HEM-2 & средний & 0.149 & 0.894 & 0.903 & 0.891 & 0.858 \\ \hline
+HEM-3 & средний & 0.149 & 0.949 & 0.957 & 0.951 & 0.926 \\ \hline
+HEM-4 & средний & 0.149 & 0.565 & 0.556 & 0.565 & 0.534 \\ \hline
+HEM-5 & средний & 0.149 & 0.568 & 0.589 & 0.580 & 0.519 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации гемолитических пептидов.}
+\label{tab:compare_results_hem}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & \underline{0.726} & \underline{0.704} \\ \hline
+ProtT5 & \underline{0.726} & \textbf{0.707} \\ \hline
+ProtBert & 0.683 & 0.656 \\ \hline
+Ankh & \textbf{0.728} & \underline{0.704} \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
 \begin{table}[h]
 \centering
 \caption{Ранжированные наборы данных антимикробных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
@@ -1612,12 +1649,12 @@ Ankh & \textbf{0.762} & \underline{0.663} \\ \hline
 Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
 \hline
 AMP-1 & средний & 0.071 & 0.909 & 0.903 & 0.903 & 0.852 \\ \hline
-AMP-2 & средний & 0.071 & 0.91 & 0.907 & 0.904 & 0.87 \\ \hline
-AMP-3 & средний & 0.071 & 0.83 & 0.821 & 0.813 & 0.764 \\ \hline
-AMP-4 & сложный & 0.192 & 0.952 & 0.956 & 0.954 & 0.92 \\ \hline
+AMP-2 & средний & 0.071 & 0.910 & 0.907 & 0.904 & 0.870 \\ \hline
+AMP-3 & средний & 0.071 & 0.830 & 0.821 & 0.813 & 0.764 \\ \hline
+AMP-4 & сложный & 0.192 & 0.952 & 0.956 & 0.954 & 0.920 \\ \hline
 AMP-5 & средний & 0.071 & 0.948 & 0.969 & 0.939 & 0.928 \\ \hline
 AMP-6 & сложный & 0.192 & 0.657 & 0.624 & 0.655 & 0.559 \\ \hline
-AMP-7 & средний & 0.071 & 0.864 & 0.845 & 0.77 & 0.773 \\ \hline
+AMP-7 & средний & 0.071 & 0.864 & 0.845 & 0.770 & 0.773 \\ \hline
 AMP-8 & сложный & 0.192 & 0.722 & 0.715 & 0.719 & 0.676 \\ \hline
 AMP-9 & средний & 0.071 & 0.927 & 0.922 & 0.923 & 0.903 \\ \hline
 \end{tabular}
@@ -1636,9 +1673,490 @@ AMP-9 & средний & 0.071 & 0.927 & 0.922 & 0.923 & 0.903 \\ \hline
 Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
 \hline
 ESM-C & 0.842 & 0.818 \\ \hline
-ProtT5 & \textbf{0.858} & \textbf{0.828} \\ \hline
+ProtT5 & 0.858 & 0.828 \\ \hline
 ProtBert & 0.805 & 0.773 \\ \hline
-Ankh & \underline{0.851} & \underline{0.820} \\ \hline
+Ankh & 0.851 & 0.820 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных проникающих в клетки пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ccp}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+CPP-1 & сложный & 0.143 & 0.766 & 0.746 & 0.738 & 0.721 \\ \hline
+CPP-2 & сложный & 0.143 & 0.834 & 0.811 & 0.808 & 0.792 \\ \hline
+CPP-3 & сложный & 0.143 & 0.824 & 0.824 & 0.831 & 0.802 \\ \hline
+CPP-4 & сложный & 0.143 & 0.717 & 0.715 & 0.714 & 0.650 \\ \hline
+CPP-5 & сложный & 0.143 & 0.835 & 0.822 & 0.810 & 0.809 \\ \hline
+CPP-6 & сложный & 0.143 & 0.428 & 0.399 & 0.384 & 0.295 \\ \hline
+CPP-7 & сложный & 0.143 & 0.278 & 0.285 & 0.343 & 0.235 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации проникающих в клетки пептидов.}
+\label{tab:compare_results_ccp}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.661 & 0.661 \\ \hline
+ProtT5 & 0.669 & 0.669 \\ \hline
+ProtBert & 0.615 & 0.615 \\ \hline
+Ankh & 0.657 & 0.657 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных противоопухолевых пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ant}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+ANT-1 & средний & 0.090 & 0.859 & 0.845 & 0.821 & 0.811 \\ \hline
+ANT-2 & сложный & 0.244 & 0.656 & 0.681 & 0.630 & 0.647 \\ \hline
+ANT-3 & средний & 0.090 & 0.889 & 0.875 & 0.882 & 0.859 \\ \hline
+ANT-4 & средний & 0.090 & 0.871 & 0.873 & 0.865 & 0.821 \\ \hline
+ANT-5 & сложный & 0.244 & 0.504 & 0.505 & 0.486 & 0.499 \\ \hline
+ANT-6 & сложный & 0.244 & 0.459 & 0.416 & 0.376 & 0.303 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации противоопухолевых пептидов.}
+\label{tab:compare_results_ant}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.677 & 0.594 \\ \hline
+ProtT5 & 0.706 & 0.629 \\ \hline
+ProtBert & 0.657 & 0.576 \\ \hline
+Ankh & 0.699 & 0.623 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных антибактериальных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ab}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AB-1 & средний & 0.134 & 0.877 & 0.889 & 0.891 & 0.843 \\ \hline
+AB-2 & средний & 0.134 & 0.902 & 0.904 & 0.897 & 0.873 \\ \hline
+AB-3 & сложный & 0.366 & 0.698 & 0.689 & 0.703 & 0.691 \\ \hline
+AB-4 & сложный & 0.366 & 0.565 & 0.549 & 0.548 & 0.510 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации антибактериальных пептидов.}
+\label{tab:compare_results_ab}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.760 & 0.698 \\ \hline
+ProtT5 & 0.760 & 0.701 \\ \hline
+ProtBert & 0.729 & 0.670 \\ \hline
+Ankh & 0.758 & 0.694 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных противогрибковых пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_af}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AF-1 & средний & 0.333 & 0.871 & 0.859 & 0.863 & 0.814 \\ \hline
+AF-2 & средний & 0.333 & 0.834 & 0.847 & 0.835 & 0.795 \\ \hline
+AF-3 & средний & 0.333 & 0.924 & 0.924 & 0.897 & 0.879 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации противогрибковых пептидов.}
+\label{tab:compare_results_af}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.865 & 0.865 \\ \hline
+ProtT5 & 0.876 & 0.876 \\ \hline
+ProtBert & 0.830 & 0.830 \\ \hline
+Ankh & 0.877 & 0.877 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных противопаразитарных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ap}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AP-1 & средний & 0.333 & 0.911 & 0.898 & 0.906 & 0.869 \\ \hline
+AP-2 & средний & 0.333 & 0.759 & 0.735 & 0.724 & 0.687 \\ \hline
+AP-3 & средний & 0.333 & 0.585 & 0.589 & 0.570 & 0.531 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации противопаразитарных пептидов.}
+\label{tab:compare_results_ap}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.733 & 0.733 \\ \hline
+ProtT5 & 0.752 & 0.752 \\ \hline
+ProtBert & 0.696 & 0.696 \\ \hline
+Ankh & 0.740 & 0.740 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных противовоспалительных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_inf}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+INF-1 & сложный & 0.333 & 0.215 & 0.203 & 0.233 & 0.135 \\ \hline
+INF-2 & сложный & 0.333 & 0.334 & 0.308 & 0.325 & 0.289 \\ \hline
+INF-3 & сложный & 0.333 & 0.274 & 0.193 & 0.254 & 0.182 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации противовоспалительных пептидов.}
+\label{tab:compare_results_inf}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.271 & 0.271 \\ \hline
+ProtT5 & 0.275 & 0.275 \\ \hline
+ProtBert & 0.202 & 0.202 \\ \hline
+Ankh & 0.235 & 0.235 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных антигипертензивных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_aht}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AHT-1 & сложный & 0.500 & 0.900 & 0.921 & 0.885 & 0.839 \\ \hline
+AHT-2 & сложный & 0.500 & 0.653 & 0.667 & 0.627 & 0.529 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации антигипертензивных пептидов.}
+\label{tab:compare_results_aht}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.756 & 0.756 \\ \hline
+ProtT5 & 0.777 & 0.777 \\ \hline
+ProtBert & 0.684 & 0.684 \\ \hline
+Ankh & 0.794 & 0.794 \\ \hline
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных антидиабетических пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ad}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AD-1 & сложный & 0.500 & 0.476 & 0.489 & 0.481 & 0.434 \\ \hline
+AD-2 & сложный & 0.500 & 0.699 & 0.694 & 0.736 & 0.657 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации антидиабетических пептидов.}
+\label{tab:compare_results_ad}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.608 & 0.608 \\ \hline
+ProtT5 & 0.587 & 0.587 \\ \hline
+ProtBert & 0.546 & 0.546 \\ \hline
+Ankh & 0.592 & 0.592 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных вкусовых пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_taste}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+TASTE-1 & сложный & 0.500 & 0.689 & 0.675 & 0.674 & 0.564 \\ \hline
+TASTE-2 & сложный & 0.500 & 0.689 & 0.641 & 0.643 & 0.552 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации вкусовых пептидов.}
+\label{tab:compare_results_taste}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.658 & 0.658 \\ \hline
+ProtT5 & 0.689 & 0.689 \\ \hline
+ProtBert & 0.558 & 0.558 \\ \hline
+Ankh & 0.658 & 0.658 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных противоокислительных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_ao}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+AO-1 & сложный & 0.500 & 0.881 & 0.866 & 0.844 & 0.629 \\ \hline
+AO-2 & сложный & 0.500 & 0.545 & 0.511 & 0.496 & 0.446 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации противоокислительных пептидов.}
+\label{tab:compare_results_ao}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.670 & 0.670 \\ \hline
+ProtT5 & 0.713 & 0.713 \\ \hline
+ProtBert & 0.538 & 0.538 \\ \hline
+Ankh & 0.689 & 0.689 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных нейропептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_np}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+NP-1 & средний & 0.500 & 0.783 & 0.788 & 0.781 & 0.696 \\ \hline
+NP-2 & средний & 0.500 & 0.783 & 0.777 & 0.787 & 0.724 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации нейропептидов.}
+\label{tab:compare_results_np}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.784 & 0.784 \\ \hline
+ProtT5 & 0.783 & 0.783 \\ \hline
+ProtBert & 0.710 & 0.710 \\ \hline
+Ankh & 0.783 & 0.783 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных токсичных пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_tox}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+TOX-1 & средний & 0.500 & 0.841 & 0.839 & 0.837 & 0.759 \\ \hline
+TOX-2 & средний & 0.500 & 0.869 & 0.863 & 0.863 & 0.786 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации токсичных пептидов.}
+\label{tab:compare_results_tox}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.850 & 0.850 \\ \hline
+ProtT5 & 0.855 & 0.855 \\ \hline
+ProtBert & 0.773 & 0.773 \\ \hline
+Ankh & 0.851 & 0.851 \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+% --------------------------------------------------------
+\begin{table}[h]
+\centering
+\caption{Ранжированные наборы данных оставшихся одиночных категорий пептидов с помощью алгоритма подсчета метрики сложности и производительности моделей на эмбеддингах языковых моделей.}
+\label{tab:model_performance_other}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Набор данных & Ранг & Вес & ProtT5 & Ankh & ESM-C & ProtBERT \\
+\hline
+PINF-1 & сложный & 0.333 & 0.276 & 0.220 & 0.238 & 0.166 \\ \hline
+BBB-1 & сложный & 0.333 & 0.480 & 0.479 & 0.551 & 0.440 \\ \hline
+IMM-1 & сложный & 0.333 & 0.414 & 0.342 & 0.393 & 0.365 \\ \hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[h]
+\centering
+
+\caption{Результаты оценки качества векторных представлений в задачах бинарной классификации оставшихся одиночных категорий пептидов.}
+\label{tab:compare_results_other}
+% \textbf \underline
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+Модель & Средняя \newline производительность & Взвешенная \newline средняя \newline производительность \\
+\hline
+ESM-C & 0.394 & 0.394 \\ \hline
+ProtT5 & 0.390 & 0.390 \\ \hline
+ProtBert & 0.324 & 0.324 \\ \hline
+Ankh & 0.347 & 0.347 \\ \hline
 \end{tabular}
 
 \end{table}
